@@ -46,7 +46,7 @@ function NavBar() {
           </a>
           <a
             href="#"
-            className="hover:underline
+            className="hover:underline relative group
           "
           >
             Member Area
