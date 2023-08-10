@@ -72,10 +72,29 @@ const AboutUs = () => {
 
         <h2>Join our Movement</h2>
         <p>
-          We invite you to be part of this revolution -- a movement that
-          empowers individuals to embrace their passions and embrace their
-          potential. Whether you're a student, a mentor, or simply curious,
-          there's a place for you in our community
+          We invite you to be part of this revolution, a movement that empowers
+          individuals to embrace their passions and embrace their potential.
+          Whether you're a student, a mentor, or simply curious, there's a place
+          for you in our community.
+        </p>
+
+        <h2>Contact Us</h2>
+        <img src="" alt="" />
+        <p>
+          Have questions, ideas, or just wnat to say hello? Reach out to us at
+          contact@passionempowerment.com or give us call at +250790914894.
+        </p>
+
+        <h2>Connect with Us</h2>
+        <p>
+          Follow us on social media for updates, stories and inspirations:
+          {/* Put the social media icons */}
+        </p>
+        <div></div>
+
+        <p>
+          We're her to inspire, empower, and transform. Join us on this journey
+          of passion and growth.{" "}
         </p>
       </section>
     </>
