@@ -2,7 +2,9 @@ const PassionSection = () => {
   return (
     <>
       <section className="flex flex-col items-center m-10 gap-y-6">
-        <h1>Cultivate Your Passions: Explore Our Categories</h1>
+        <h1 className="text-3xl text-center font-extrabold">
+          Cultivate Your Passions: Explore Our Categories
+        </h1>
         <div className="grid grid-cols-3 gap-x-6">
           <div className="border p-4">
             <h2>Arts</h2>
