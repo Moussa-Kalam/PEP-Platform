@@ -3,8 +3,8 @@ import { heroImage } from "../assets/index";
 const HeroSection = () => {
   return (
     <>
-      <section className="flex gap-x-10  items-center bg-blue-200">
-        <div className="flex flex-col gap-y-4 items-center justify-center border max-w-[50%] px-10">
+      <section className="flex flex-wrap md:flex-nowrap gap-x-10  items-center bg-blue-200">
+        <div className="flex flex-col gap-y-4 items-center justify-center border   px-10">
           <h1 className="text-5xl text-center font-extrabold">
             Empowering Dreams, One Passion at a Time
           </h1>
