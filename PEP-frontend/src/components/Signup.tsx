@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 interface SignupFormData {
   fullName: string;
@@ -6,13 +7,13 @@ interface SignupFormData {
   username: string;
   password: string;
   confirmPassword: string;
-  dob: string;
+  dateOfBirth: string;
   gender: string;
   country: string;
-  interests: string[];
+  interests: string;
 }
 
-const interestsOptions = ["Arts", "Sports", "Technology"];
+// const interestsOptions = ["Arts", "Sports", "Technology"];
 
 const SignupPage: React.FC = () => {
   const [formData, setFormData] = useState<SignupFormData>({
@@ -21,11 +22,13 @@ const SignupPage: React.FC = () => {
     username: "",
     password: "",
     confirmPassword: "",
-    dob: "",
+    dateOfBirth: "",
     gender: "",
     country: "",
-    interests: [],
+    interests: "",
   });
+
+  const baseUrl = "http://localhost:3003";
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -37,21 +40,20 @@ const SignupPage: React.FC = () => {
     }));
   };
 
-  const handleInterestsChange = (
-    event: React.ChangeEvent<HTMLSelectElement>
-  ) => {
-    const { value } = event.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      interests: prevData.interests.includes(value)
-        ? prevData.interests.filter((interest) => interest !== value)
-        : [...prevData.interests, value],
-    }));
-  };
-
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     console.log(formData);
+
+    axios
+      .post(`${baseUrl}/auth/signup/`, formData)
+      .then((res) => {
+        setFormData(res.data);
+        console.log("Response:", res.data);
+      })
+      .catch((error) => {
+        console.error("Error", error);
+      });
+
     // You can perform further validation and submission logic here
   };
 
@@ -175,7 +177,7 @@ const SignupPage: React.FC = () => {
 
             <div>
               <label
-                htmlFor="dob"
+                htmlFor="dateOfBirth"
                 className="block text-sm font-medium text-gray-700"
               >
                 Date of Birth
@@ -183,9 +185,9 @@ const SignupPage: React.FC = () => {
               <div className="mt-1">
                 <input
                   type="date"
-                  name="dob"
-                  id="dob"
-                  value={formData.dob}
+                  name="dateOfBirth"
+                  id="dateOfBirth"
+                  value={formData.dateOfBirth}
                   onChange={handleInputChange}
                   required
                   className="appearance-none block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
@@ -208,6 +210,7 @@ const SignupPage: React.FC = () => {
                   onChange={handleInputChange}
                   className="block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
                 >
+                  <option value="">Select your gender</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                   <option value="other">Other</option>
@@ -244,18 +247,16 @@ const SignupPage: React.FC = () => {
               </label>
               <div className="mt-1">
                 <select
-                  multiple
                   name="interests"
                   id="interests"
                   value={formData.interests}
-                  onChange={handleInterestsChange}
+                  onChange={handleInputChange}
                   className="block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
                 >
-                  {interestsOptions.map((interest) => (
-                    <option key={interest} value={interest}>
-                      {interest}
-                    </option>
-                  ))}
+                  <option value="">Select a category</option>
+                  <option value="arts">Arts</option>
+                  <option value="sports">Sports</option>
+                  <option value="technology">Technology</option>
                 </select>
               </div>
             </div>

@@ -1,15 +1,19 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 interface LoginForm {
-  email: string;
+  username: string;
   password: string;
 }
 
 const LoginPage: React.FC = () => {
   const [loginForm, setLoginForm] = useState<LoginForm>({
-    email: "",
+    username: "",
     password: "",
   });
+
+  const baseUrl = "http://localhost:3003";
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -22,11 +26,20 @@ const LoginPage: React.FC = () => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     console.log(loginForm);
-    // You can perform further login validation and logic here
+
+    axios
+      .post(`${baseUrl}/auth/signin/`, loginForm)
+      .then((res) => {
+        setLoginForm((prevData) => ({ ...prevData, ...res.data }));
+        console.log("Response:", res.data);
+      })
+      .catch((error) => {
+        console.error("Error", error);
+      });
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="h-screen bg-gray-100 flex flex-col  py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
           Log In
@@ -41,15 +54,15 @@ const LoginPage: React.FC = () => {
                 htmlFor="email"
                 className="block text-sm font-medium text-gray-700"
               >
-                Email
+                Username
               </label>
               <div className="mt-1">
                 <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  autoComplete="email"
-                  value={loginForm.email}
+                  type="text"
+                  name="username"
+                  id="username"
+                  autoComplete="username"
+                  value={loginForm.username}
                   onChange={handleInputChange}
                   required
                   className="appearance-none block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
@@ -90,12 +103,12 @@ const LoginPage: React.FC = () => {
             <div className="mt-4 text-center">
               <p className="text-sm text-gray-600">
                 Don't have an account?{" "}
-                <a
-                  href="/register"
+                <Link
+                  to="/sign-up"
                   className="font-medium text-red-600 hover:text-red-500"
                 >
                   Register here
-                </a>
+                </Link>
               </p>
             </div>
           </form>

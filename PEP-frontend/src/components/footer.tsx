@@ -1,32 +1,41 @@
+import { Link } from "react-router-dom";
 import { facebook, instagram, linkedin, twitter } from "../assets/index";
 const Footer = () => {
   return (
     <>
-      <section className="flex flex-col items-center gap-y-1 text-sm border bg-blue-100 py-2">
+      <section className="flex flex-col items-center gap-y-3 text-sm border bg-gray-200 py-2">
         <div className="flex gap-x-8">
-          <a href="#" className="hover:underline">
+          <Link to="/" className="hover:underline">
             Home
-          </a>
+          </Link>
+          <Link to="/about" className="hover:underline">
+            About Us
+          </Link>
           <a href="#" className="hover:underline">
             Passion Categories
           </a>
           <a href="#" className="hover:underline">
-            Mentor Connection
-          </a>
-          <a href="#" className="hover:underline">
-            About Us
+            Our Mentors
           </a>
           <a href="#" className="hover:underline">
             Contact Us
           </a>
         </div>
-        <div className="flex flex-col items-center">
-          <p>Connect with Us</p>
-          <div className="flex gap-x-6">
-            <img src={facebook} alt="" className="h-6 w-6" />
-            <img src={instagram} alt="" className="h-6 w-6" />
-            <img src={twitter} alt="" className="h-6 w-6" />
-            <img src={linkedin} alt="" className="h-6 w-6" />
+        <div className="flex flex-col items-center gap-y-2">
+          <p className="font-bold">Connect with Us</p>
+          <div className="flex gap-x-12">
+            <a href="">
+              <img src={facebook} alt="" className="h-6 w-6" />
+            </a>
+            <a href="">
+              <img src={instagram} alt="" className="h-6 w-6" />
+            </a>
+            <a href="">
+              <img src={twitter} alt="" className="h-6 w-6" />
+            </a>
+            <a href="">
+              <img src={linkedin} alt="" className="h-6 w-6" />
+            </a>
           </div>
         </div>
         <div className="flex flex-col items-center">

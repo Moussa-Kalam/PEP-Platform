@@ -1,32 +1,28 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./routing/Home";
+import AboutUs from "./components/AboutUs";
+import LoginPage from "./components/Login";
+import SignupPage from "./components/Signup";
 import NavBar from "./components/NavBar";
-import HeroSection from "./components/HeroSection";
-import PassionSection from "./components/PassionSection";
-import Testimonials from "./components/Testimonials";
-// import LoginPage from "./components/Login";
-// import SignupPage from "./components/Signup";
-import Footer from "./components/Footer";
+import MentorshipRequestForm from "./components/MentorshipRequestForm";
 
-function App() {
-  const links = [
-    "Home",
-    "About Us",
-    "Passion Categories",
-    "Our Mentors",
-    "Member Area",
-  ];
-  const handleSelectLink = (link: string) => console.log(link);
-
+const App: React.FC = () => {
   return (
-    <div>
-      <NavBar links={links} onSelectLink={handleSelectLink} />
-      <HeroSection />
-      <PassionSection />
-      <Testimonials />
-      {/* <LoginPage />
-      <SignupPage /> */}
-      <Footer />
-    </div>
+    <Router>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/about" element={<AboutUs />}></Route>
+        <Route path="/sign-in" element={<LoginPage />}></Route>
+        <Route path="/sign-up" element={<SignupPage />}></Route>
+        <Route
+          path="/mentorship-request"
+          element={<MentorshipRequestForm />}
+        ></Route>
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

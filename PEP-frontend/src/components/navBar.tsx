@@ -1,38 +1,38 @@
+import { Link } from "react-router-dom";
 import Logo from "./Logo";
-import { useState } from "react";
 
-interface Props {
-  links: string[];
-  onSelectLink: (link: string) => void;
-}
-
-function NavBar({ links, onSelectLink }: Props) {
-  // State Hook
-  const [selectedIndex, setSelectedIndex] = useState(-1);
-
-  // Event handler
-  // const handleClick = (event: MouseEvent) => console.log(event);
-
+const NavBar: React.FC = () => {
   return (
     <>
-      <section className="flex justify-between  items-center bg-blue-100 py-10 px-16">
+      <nav className="flex justify-between  items-center bg-gray-200 py-10 px-16 sticky top-0 z-10">
         <Logo />
         <ul className="flex gap-x-6 items-center text-lg">
-          {links.map((link, index) => (
-            <li
-              className={
-                selectedIndex === index ? "bg-blue-200" : "bg-blue-100"
-              }
-              key={link}
-              onClick={(event) => {
-                event.preventDefault();
-                setSelectedIndex(index);
-                onSelectLink(link);
-              }}
-            >
-              <a href="">{link}</a>
-            </li>
-          ))}
+          <li>
+            <Link to="/" className="hover:underline">
+              Home
+            </Link>
+          </li>
+
+          <li>
+            <Link to="/about" className="hover:underline">
+              About Us
+            </Link>
+          </li>
+          <li>
+            <Link to="/category" className="hover:underline">
+              Passion Categories
+            </Link>
+          </li>
+          <li>
+            <Link to="/mentors" className="hover:underline">
+              Our Mentors
+            </Link>
+          </li>
+          <li>
+            <Link to="/sign-in" className="hover:underline">
+              Member Area
+            </Link>
+          </li>
         </ul>
 
         <div className="">
@@ -44,9 +44,9 @@ function NavBar({ links, onSelectLink }: Props) {
             Donate
           </a>
         </div>
-      </section>
+      </nav>
     </>
   );
-}
+};
 
 export default NavBar;

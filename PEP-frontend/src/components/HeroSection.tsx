@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import { heroImage } from "../assets/index";
 
 const HeroSection = () => {
   return (
     <>
-      <section className="flex flex-wrap md:flex-nowrap gap-x-10  items-center bg-blue-200">
-        <div className="flex flex-col gap-y-4 items-center justify-center border   px-10">
+      <section className="flex flex-wrap md:flex-nowrap gap-x-10  items-center bg-gray-100">
+        <div className="flex flex-col gap-y-4 items-center justify-center  py-4  px-10">
           <h1 className="text-5xl text-center font-extrabold">
             Empowering Dreams, One Passion at a Time
           </h1>
@@ -15,12 +16,15 @@ const HeroSection = () => {
             connect with mentors who share your interests, and embark on a
             transformative journey of learning and empowerment.
           </p>
-          <button className="mt-8 text-xl font-semibold p-4 bg-red-400 text-white">
+          <Link
+            to="/sign-up"
+            className="mt-8 text-xl font-semibold p-4 bg-red-400 text-white hover:bg-red-300"
+          >
             Join the Community
-          </button>
+          </Link>
         </div>
         <div>
-          <img src={heroImage} alt="hero Image" className=" drop-shadow-md" />
+          <img src={heroImage} alt="hero Image" className=" drop-shadow-sm" />
         </div>
       </section>
     </>
