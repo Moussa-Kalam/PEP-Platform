@@ -4,9 +4,9 @@ import Logo from "./Logo";
 const NavBar: React.FC = () => {
   return (
     <>
-      <nav className="flex justify-between  items-center bg-gray-200 py-10 px-16 sticky top-0 z-10">
+      <nav className="flex justify-between items-center bg-gray-200 py-4 md:py-6 px-6 md:px-16 sticky top-0 z-10">
         <Logo />
-        <ul className="flex gap-x-6 items-center text-lg">
+        <ul className="hidden md:text-sm lg:text-xl md:flex gap-x-6 text-lg">
           <li>
             <Link to="/" className="hover:underline">
               Home
@@ -19,12 +19,12 @@ const NavBar: React.FC = () => {
             </Link>
           </li>
           <li>
-            <Link to="/category" className="hover:underline">
+            <Link to="#" className="hover:underline">
               Passion Categories
             </Link>
           </li>
           <li>
-            <Link to="/mentors" className="hover:underline">
+            <Link to="#" className="hover:underline">
               Our Mentors
             </Link>
           </li>
@@ -38,7 +38,7 @@ const NavBar: React.FC = () => {
         <div className="">
           <a
             href="#"
-            className="hover:bg-red-300 text-xl bg-red-400 text-white font-semibold p-3
+            className="hover:bg-red-300 text-md lg:text-xl bg-red-400 text-white font-semibold p-3
             "
           >
             Donate

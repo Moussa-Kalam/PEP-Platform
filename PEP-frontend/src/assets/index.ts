@@ -8,6 +8,7 @@ import sport from "./img/sports-equipment-sporting-goods-balls-getty.jpg";
 import technology from "./img/technology-and-us.jpg";
 import art from "./img/background-art.jpg";
 import studentTestimonial1 from "./img/testimonial.jpg";
+import studentTestimonial2 from "./img/pretty-afro-american-female-student-with-backpack-paperwork-classroom-university_255667-20564.jpg";
 
 export {
   heroImage,
@@ -20,4 +21,5 @@ export {
   technology,
   art,
   studentTestimonial1,
+  studentTestimonial2,
 };

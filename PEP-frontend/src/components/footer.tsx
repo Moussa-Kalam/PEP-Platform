@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { facebook, instagram, linkedin, twitter } from "../assets/index";
+
 const Footer = () => {
   return (
     <>
-      <section className="flex flex-col items-center gap-y-3 text-sm border bg-gray-200 py-2">
+      <section className="flex flex-col items-center gap-y-3 text-sm border bg-gray-200 py-2 pb-5">
         <div className="flex gap-x-8">
           <Link to="/" className="hover:underline">
             Home

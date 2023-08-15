@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface LoginForm {
   username: string;
@@ -23,17 +23,23 @@ const LoginPage: React.FC = () => {
     }));
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     console.log(loginForm);
+    console.log("Form submitted");
 
     axios
       .post(`${baseUrl}/auth/signin/`, loginForm)
       .then((res) => {
         setLoginForm((prevData) => ({ ...prevData, ...res.data }));
         console.log("Response:", res.data);
+
+        navigate("/student-dashboard");
       })
       .catch((error) => {
+        window.alert("Login failed! Please check your username and password");
         console.error("Error", error);
       });
   };
@@ -94,7 +100,7 @@ const LoginPage: React.FC = () => {
             <div>
               <button
                 type="submit"
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-400 hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
               >
                 Log In
               </button>
@@ -105,7 +111,7 @@ const LoginPage: React.FC = () => {
                 Don't have an account?{" "}
                 <Link
                   to="/sign-up"
-                  className="font-medium text-red-600 hover:text-red-500"
+                  className="font-medium text-red-400 hover:text-red-500"
                 >
                   Register here
                 </Link>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 interface SignupFormData {
   fullName: string;
@@ -12,8 +13,6 @@ interface SignupFormData {
   country: string;
   interests: string;
 }
-
-// const interestsOptions = ["Arts", "Sports", "Technology"];
 
 const SignupPage: React.FC = () => {
   const [formData, setFormData] = useState<SignupFormData>({
@@ -40,6 +39,8 @@ const SignupPage: React.FC = () => {
     }));
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     console.log(formData);
@@ -49,12 +50,15 @@ const SignupPage: React.FC = () => {
       .then((res) => {
         setFormData(res.data);
         console.log("Response:", res.data);
+        if (res.status === 201) {
+          window.alert("Account created successfully! You can login.");
+          navigate("/sign-in");
+        }
       })
       .catch((error) => {
         console.error("Error", error);
+        window.alert("Account creation failed!");
       });
-
-    // You can perform further validation and submission logic here
   };
 
   return (

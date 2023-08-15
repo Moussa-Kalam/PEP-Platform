@@ -1,4 +1,4 @@
-import { studentTestimonial1 } from "../assets/index";
+import { studentTestimonial1, studentTestimonial2 } from "../assets/index";
 
 const Testimonials = () => {
   return (
@@ -10,7 +10,7 @@ const Testimonials = () => {
         </p>
         <div className="flex flex-wrap gap-8 justify-center">
           <div className="border rounded-lg max-w-lg flex flex-col gap-y-2 items-center bg-white">
-            <img src={studentTestimonial1} alt="user image" className="" />
+            <img src={studentTestimonial2} alt="user image" className="" />
             <div className="flex flex-col items-center gap-y-3 p-4">
               <p className="italic text-lg">
                 "This platform has transformed the way I pursue my passions. I
@@ -25,25 +25,14 @@ const Testimonials = () => {
             <img src={studentTestimonial1} alt="user image" className="" />
             <div className="flex flex-col items-center gap-y-3 p-4">
               <p className="italic text-lg">
-                "This platform has transformed the way I pursue my passions. I
-                connected with an amazing mentor and now, I'm thriving in my
-                chosen field of arts!"
+                "I've found the perfect mentor who helped me take my sports
+                skills to the next level. The support and guidance I received
+                here are truly invaluable!"
               </p>
-              <p className="text-xl">Sarah Johnson</p>
-              <p className="text-xl font-semibold">Artist and Educator</p>
+              <p className="text-xl">Michael Smith</p>
+              <p className="text-xl font-semibold">Athlete and Coach</p>
             </div>
           </div>
-
-          {/* <div className="border p-4  max-w-lg">
-            <img src={studentTestimonial1} alt="user image" />
-            <p className="italic">
-              "I've found the perfect mentor who helped me take my sports skills
-              to the next level. The support and guidance I received here are
-              truly invaluable!"
-            </p>
-            <p>Michael Smith</p>
-            <p>Athlete and Coach</p>
-          </div> */}
         </div>
       </section>
     </>

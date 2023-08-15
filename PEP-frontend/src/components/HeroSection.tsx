@@ -18,7 +18,7 @@ const HeroSection = () => {
           </p>
           <Link
             to="/sign-up"
-            className="mt-8 text-xl font-semibold p-4 bg-red-400 text-white hover:bg-red-300"
+            className="mt-8 text-md lg:text-xl font-semibold p-4 bg-red-400 text-white hover:bg-red-300"
           >
             Join the Community
           </Link>

@@ -5,6 +5,7 @@ import LoginPage from "./components/Login";
 import SignupPage from "./components/Signup";
 import NavBar from "./components/NavBar";
 import MentorshipRequestForm from "./components/MentorshipRequestForm";
+import StudentDashboard from "./components/StudentDashboard";
 
 const App: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ const App: React.FC = () => {
           path="/mentorship-request"
           element={<MentorshipRequestForm />}
         ></Route>
+        <Route path="/student-dashboard" element={<StudentDashboard />}></Route>
       </Routes>
     </Router>
   );

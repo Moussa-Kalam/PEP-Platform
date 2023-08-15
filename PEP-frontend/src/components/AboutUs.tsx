@@ -1,4 +1,5 @@
 import { profilePic } from "../assets/index";
+import { facebook, instagram, linkedin, twitter } from "../assets/index";
 
 const AboutUs = () => {
   return (
@@ -16,7 +17,6 @@ const AboutUs = () => {
               potential in students back in his home country, and that ignited a
               fire with him to create a space where passions could flourish
             </p>
-
             <h2 className="text-3xl font-bold mt-8 mb-2">Our Mission</h2>
             <img src="" alt="" />
             <p className="text-gray-700 text-xl leading-loose">
@@ -37,13 +37,13 @@ const AboutUs = () => {
               their own journey.
             </p>
             <h2 className="text-3xl font-bold mt-8 mb-2">Meet the Founder</h2>
-            <div className="flex items-center">
+            <div className="flex flex-col items-center lg:flex  lg:items-center">
               <img
                 src={profilePic}
                 alt=""
-                className="w-72 h-72 rounded-2xl mr-4"
+                className="w-72 h-72 rounded-2xl mr-4 mb-4"
               />
-              <p className="text-gray-700 text-xl leading-loose mx-auto w-3/5 border">
+              <p className="text-gray-700 text-xl leading-loose mx-auto md:w-3/5">
                 A former diplomacy graduate, Virtual Assistant, self-taught
                 English speaker and Judo Instructor, turned tech enthusiast,
                 Moussa's journey inspired the platform's mission to bridge the
@@ -106,13 +106,25 @@ const AboutUs = () => {
             <h2 className="text-3xl font-bold mt-8 mb-2">Connect with Us</h2>
             <p className="text-gray-700 text-xl leading-loose">
               Follow us on social media for updates, stories and inspirations:
-              {/* Put the social media icons */}
             </p>
-            <div></div>
             <p className="text-gray-700 text-xl leading-loose">
               We're here to inspire, empower, and transform. Join us on this
               journey of passion and growth.{" "}
             </p>
+            <div className="flex gap-x-12 mt-6">
+              <a href="">
+                <img src={facebook} alt="" className="h-10 w-10" />
+              </a>
+              <a href="">
+                <img src={instagram} alt="" className="h-10 w-10" />
+              </a>
+              <a href="">
+                <img src={twitter} alt="" className="h-10 w-10" />
+              </a>
+              <a href="">
+                <img src={linkedin} alt="" className="h-10 w-10" />
+              </a>
+            </div>{" "}
           </div>
         </div>
       </section>
